@@ -10,6 +10,8 @@ jobs:
       - run: npm run build
       - persist_to_workspace:
           root: workspace
+          paths:
+            - ./
 
   my_deploy:
     machine: true
