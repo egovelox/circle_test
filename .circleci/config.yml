@@ -21,7 +21,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "90:0e:ef:fd:f1:21:9e:05:6a:fb:1a:d8:00:35:21:53"
-      - run: ls -al ./dist  
+            - run: scp -r ./dist $USER@$HOST:$DEST_PATH 
 
 orbs:
   node: circleci/node@3.0.0
