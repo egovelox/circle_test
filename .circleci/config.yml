@@ -8,13 +8,18 @@ jobs:
           cache-path: ~/project/node_modules
           override-ci-command: npm install
       - run: npm run build
+      - persist_to_workspace:
+          root: workspace
+
   my_deploy:
     machine: true
     steps:
+      - attach_workspace:
+          at: /
       - add_ssh_keys:
           fingerprints:
             - "90:0e:ef:fd:f1:21:9e:05:6a:fb:1a:d8:00:35:21:53"
-      - run: ssh $USER@$HOST "./deploy.sh"  
+      - run: ls -al ./dist  
 
 orbs:
   node: circleci/node@3.0.0
