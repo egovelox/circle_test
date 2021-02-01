@@ -23,3 +23,5 @@ workflows:
     jobs:
       - my_build
       - my_deploy
+          requires:
+            - my_build
