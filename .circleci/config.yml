@@ -27,6 +27,6 @@ workflows:
   build-my-webpage:
     jobs:
       - my_build
-      - my_deploy
+      - my_deploy:
           requires:
             - my_build
